@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Restricted rich text'
+format: oel_restricted_rich_text
+weight: 0
+filters: {  }

@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * @file
+ * Install and uninstall functions for the oel_ckeditor module.
+ *
+ * This file contains the functions required to perform install and
+ * uninstall operations.
+ */
+
+use Drupal\user\Entity\Role;
+
+/**
+ * Implements hook_install().
+ *
+ * @ingroup oel_ckeditor
+ */
+function oel_ckeditor_install() {
+  $role = Role::load('authenticated');
+  $role->grantPermission('use text format oel_restricted_rich_text');
+  $role->grantPermission('use text format oel_simple_rich_text');
+  $role->save();
+}
+
+/**
+ * Implements hook_uninstall().
+ *
+ * It's good to clean up after ourselves.
+ *
+ * @ingroup oel_ckeditor
+ */
+function oel_ckeditor_uninstall() {
+  $role = Role::load('authenticated');
+  $role->revokePermission('use text format oel_restricted_rich_text');
+  $role->revokePermission('use text format oel_simple_rich_text');
+  $role->save();
+}

@@ -1,0 +1,7 @@
+name: OpenEuropa Ckeditor
+description: Basic functionalities for Ckeditor.
+package: OpenEuropa
+dependencies:
+  - drupal:ckeditor
+type: module
+core_version_requirement: ^8.8 || ^9
